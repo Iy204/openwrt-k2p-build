@@ -51,7 +51,7 @@ jobs:
         git clone https://github.com/aa65535/openwrt-chinadns.git package/openwrt-chinadns
         git clone https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
     - name: Config - copy k2p build config
-      run: cp ./.config.18.06.5.release openwrt-$VERSION/.config
+      run: cp ./.config openwrt-$VERSION/.config
     - name: Change lan ip
       run: sed -i 's/192.168.1.1/192.168.2.1/g' openwrt-$VERSION/package/base-files/files/bin/config_generate
     - name: Chnroute - Add chnroute 
