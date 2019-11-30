@@ -61,7 +61,7 @@ jobs:
         cd openwrt-$VERSION
         mkdir files
         mkdir files/etc
-        cd openwrt-$VERSION/files/etc/
+        cd files/etc/
         wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -F\| '/CN\|ipv4/ { printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > ./chnroute.txt
         ls -hl
     - name: Download - openwrt build dependencies
