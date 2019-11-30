@@ -53,7 +53,9 @@ jobs:
     - name: Config - copy k2p build config
       run: cp ./.config openwrt-$VERSION/.config
     - name: Change lan ip
-      run: sed -i 's/192.168.1.1/192.168.2.1/g' openwrt-$VERSION/package/base-files/files/bin/config_generate
+      run: |
+	cd openwrt-$VERSION
+	sed -i 's/192.168.1.1/192.168.2.1/g' /package/base-files/files/bin/config_generate
     - name: Chnroute - Add chnroute 
       run: |
 	cd openwrt-$VERSION
